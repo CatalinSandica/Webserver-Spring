@@ -6,6 +6,13 @@ public class User {
 	private String firstname;
 	private String lastname;
 	
+	public User(String firstname2, String lastname2, String username2, String password2) {
+		this.firstname = firstname2;
+		this.lastname = lastname2;
+		this.username = username2;
+		this.password = password2;
+		// TODO Auto-generated constructor stub
+	}
 	public String getUserName() {
 		return username;
 	}

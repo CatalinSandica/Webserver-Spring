@@ -1,6 +1,7 @@
 package com.sandica.springMVC;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -15,6 +16,8 @@ import com.sandica.entity.User;
 
 @Controller
 public class HomeController {
+	
+	public static ArrayList<User> list;
 	
 	@RequestMapping(value="/", method = RequestMethod.GET)
 	public String home(Locale locale,Model model) {
@@ -41,12 +44,20 @@ public class HomeController {
 	
 	@RequestMapping(value="/welcome", method = RequestMethod.POST)
 	public String welcome (@RequestParam("fname") String firstname,@RequestParam("lname") String lastname,@RequestParam("uname") String username,@RequestParam("upass") String password, Model model) {
-		
+		User user = new User(firstname, lastname, username, password);
+		list = new ArrayList<User>();
+		list.add(user);
 		model.addAttribute("firstname",firstname);
 		model.addAttribute("lastname",lastname);
 		model.addAttribute("username",username);
 		model.addAttribute("password",password);
 		return "welcome";
+	}
+	
+	@RequestMapping(value="/list", method = RequestMethod.GET)
+	public String list (User user, Model model) {
+		model.addAttribute("list", list);
+		return "list";
 	}
 	
 }
