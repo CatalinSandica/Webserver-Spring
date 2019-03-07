@@ -7,6 +7,8 @@
 <title>User Page</title>
 </head>
 <body>
-<h3>Hi, ${username} </h3>
+<h1>User Page</h1>
+<br>
+<h3>Thank you for registering, ${username}. </h3>
 </body>
 </html>

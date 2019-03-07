@@ -10,7 +10,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.support.RequestContext;
 
 import com.sandica.entity.User;
 
@@ -32,6 +31,22 @@ public class HomeController {
 	
 		model.addAttribute("username",user);
 		return "user";
+	}
+	
+	@RequestMapping(value="/register", method = RequestMethod.GET)
+	public String register (Model model) {
+		
+		return "register";
+	}
+	
+	@RequestMapping(value="/welcome", method = RequestMethod.POST)
+	public String welcome (@RequestParam("fname") String firstname,@RequestParam("lname") String lastname,@RequestParam("uname") String username,@RequestParam("upass") String password, Model model) {
+		
+		model.addAttribute("firstname",firstname);
+		model.addAttribute("lastname",lastname);
+		model.addAttribute("username",username);
+		model.addAttribute("password",password);
+		return "welcome";
 	}
 	
 }
