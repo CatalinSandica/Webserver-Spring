@@ -13,7 +13,7 @@ User Details
 <table>
 	<tr>
 		<td>
-			Client name = <b>${firsname } ${lastname }</b>
+			Client name = <b>${firstname} ${lastname } </b>
 		</td>
 	</tr>	
 	<tr>
